@@ -73,7 +73,7 @@ KISSY.add(function (S, require) {
                 });
                 $('#random').on('click', function (e) {
                     e.preventDefault();
-                    var time = that._getRandom(5, 50),
+                    var time = that._getRandom(5, 2000/that.radius),
                         index = 0;
                     while (index++ < time) {
                         that._addCell(that._getRandom(0, maxX), that._getRandom(0, maxY)).paint(ctx);

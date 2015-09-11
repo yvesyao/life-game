@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Cellular Automaton</title>
+    <link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+<a href="#" id="start">Start</a>
+<canvas id="wrap">Your browser doesn't support canvas</canvas>
+<script src="//g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:false}"></script>
+<script>
+    KISSY.config({
+        packages: {
+            "js": {
+                base: "./"/*,
+                 ignorePackageNameInUri: true*/
+            }
+        },
+        debug: true
+    });
+    KISSY.use('js/index', function (S, index) {
+        index.init();
+    });
+</script>
+</body>
+</html>

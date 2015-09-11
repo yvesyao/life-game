@@ -56,7 +56,6 @@ KISSY.add(function (S, require) {
                         }))) {
                         clearTimeout(that.ticker);
                         $('#start').removeClass('pause').text('Start');
-                        console.log(x, y);
                         var cell = that._addCell(x, y);
                         cell.paint(ctx);
                     }
@@ -72,6 +71,14 @@ KISSY.add(function (S, require) {
                         that._render();
                     }
                 });
+                $('#random').on('click', function (e) {
+                    e.preventDefault();
+                    var time = that._getRandom(5, 50),
+                        index = 0;
+                    while (index++ < time) {
+                        that._addCell(that._getRandom(0, maxX), that._getRandom(0, maxY)).paint(ctx);
+                    }
+                });
                 $(window).on('resize', function (e) {
                     if (e.currentTarget === e.target) {
                         var canvas = $canvas[0];
@@ -83,6 +90,9 @@ KISSY.add(function (S, require) {
                         //ctx.restore();
                     }
                 }).fire('resize');
+            },
+            _getRandom: function (min, max) {
+                return min + Math.random() * (max - min);
             },
             /**
              * 判断给定位置的细胞是否存活
